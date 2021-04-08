@@ -91,13 +91,13 @@
         <div class="container">
 
           <!-- Main component for a primary marketing message or call to action -->
-          <div class="jumbotron">
+          <!-- <div class="jumbotron">
             <h1>American Wire & Cable Co., Inc.</h1>
             <p>e-Filing paperless filing of Leave and OT forms with delegation of approvers.</p>
-           <!--  <?php if ($this->session->has_userdata('name')) {
+            <?php if ($this->session->has_userdata('name')) {
               echo '<strong>Welcome</strong> ' . $this->session->name;
-            } ?> -->
-          </div>
+            } ?>
+          </div> -->
 
         <h3 class="page-header"><?php echo ucwords(str_replace('_', ' ', $active_page)) ?></h3>
         <h3>Welcome <?php echo ucwords(strtolower($this->session->name)) ?></h3>
