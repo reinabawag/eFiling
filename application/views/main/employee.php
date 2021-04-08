@@ -1,9 +1,11 @@
-<table id="emp_table" class="table table-hover">
+<table id="emp_table" class="table table-striped table-hover ">
 	<thead>
-		<th>Empployee ID</th>
-		<th>Last Name</th>
-		<th>First Name</th>
-		<th>Middle Name</th>
+		<tr>
+			<th>Empployee ID</th>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Middle Name</th>
+		</tr>
 	</thead>
 	<tbody>
 	</tbody>

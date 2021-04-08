@@ -246,7 +246,7 @@ class Main extends CI_Controller
 
 		$this->load->model('trail_model');
 
-		$this->trail_model->insert('OT', $recid, $this->session->empcode, $status);
+		//$this->trail_model->insert('OT', $recid, $this->session->empcode, $status);
 
 		echo json_encode(['status' => $result]);
 	}

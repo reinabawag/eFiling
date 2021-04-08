@@ -56,6 +56,7 @@
 				dataType: 'json'
 			})
 			.done(function(data) {
+				console.log(data);
 				if (data.status) {
 					window.location = data.url;
 				} else {					

@@ -15,7 +15,7 @@ class Overtime_model extends CI_Model
 	public $rec_status;
 	public $appr_status;
 	public $status;
-	public $create_date;
+	// public $create_date;
 	public $appr_date;
 	
 	function __construct()

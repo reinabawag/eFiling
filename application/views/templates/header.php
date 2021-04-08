@@ -8,7 +8,8 @@
     <title>e-Filing</title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <!-- <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet"> -->
+    <link href="<?php echo base_url('assets/css/bootstrap-lumen.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker3.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/datatables.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/toastr.min.css') ?>">
@@ -36,7 +37,7 @@
 </head>
 <body>
     <!-- Fixed navbar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
