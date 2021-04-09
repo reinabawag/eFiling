@@ -100,5 +100,7 @@
           </div> -->
 
         <h3 class="page-header"><?php echo ucwords(str_replace('_', ' ', $active_page)) ?></h3>
-        <h3>Welcome <?php echo ucwords(strtolower($this->session->name)) ?></h3>
-        <p>Today is <?php echo date('M. d, Y') ?></p>
+        <?php if(isset($this->session->name)): ?>
+          <h3>Welcome <?php echo ucwords(strtolower($this->session->name)) ?></h3>
+          <p>Today is <?php echo date('M. d, Y') ?></p>
+        <?php endif ?>

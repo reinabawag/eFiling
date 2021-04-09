@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-6 col-md-offset-3_">
+	<div class="col-md-6 col-md-offset-3">
 		<?php echo form_open('login/auth') ?>
 		<div class="form-group">
 			<label for="username">User ID</label>
