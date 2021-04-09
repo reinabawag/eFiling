@@ -1,76 +1,144 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
+	<div class="panel-heading"><strong>File leave</strong></div>
 	<div class="panel-body">
-	<form class="form-horizontal">
-  <fieldset>
-    <legend>LEAVE OF ABSENCE FORM</legend>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-2 control-label">Radios</label>
-      <div class="col-lg-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-            Option one is this
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Selects</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <br>
-        <select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+		<?=form_open('leave/create')?>
+			<div class="form-group">
+				<label for="">Employee ID</label>
+				<input type="text" class="form-control" name="empcode" value="<?=$this->session->empcode?>" readonly>
+			</div>
+			<div class="form-group">
+				<label for="">Name</label>
+				<input type="text" class="form-control" name="name" value="<?=$this->session->name?>" readonly>
+			</div>
+			<div class="form-group">
+				<label for="">Date Filed</label>
+				<input type="date" class="form-control" name="date_filed" value="<?=date('Y-m-d')?>" readonly>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">Start of leave</label>
+						<input type="date" class="form-control" name="date_start" placeholder="Start of leave">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">End of leave</label>
+						<input type="date" class="form-control" name="date_end" placeholder="End of leave">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">Leave</label>
+						<select name="pay" id="" class="form-control">
+							<option value="with pay">With pay</option>
+							<option value="without pay">Without pay</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">Application for</label>
+						<select name="type" id="" class="form-control">
+							<option value="Vacation">Vacation</option>
+							<option value="Sick">Sick</option>
+							<option value="Emergency">Emergency</option>
+							<option value="Paternity">Paternity</option>
+							<option value="Maternity">Maternity</option>
+							<option value="Bereavement">Bereavement</option>
+							<option value="Special leave for woman">Special leave for woman</option>
+							<option value="Single parent leave">Single parent leave	</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="">Reason</label>
+				<textarea name="reason" id="" class="form-control" cols="30" rows="3" placeholder="Kindly state your reason here"></textarea>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">Recommeding approver</label>
+						<?=form_dropdown('recommended_by', $recommender, NULL, ['class' => 'form-control'])?>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="">Approver</label>
+						<?=form_dropdown('approved_by', $approver, NULL, ['class' => 'form-control'])?>
+					</div>
+				</div>
+			</div>
+
+			<button type="reset" class="btn btn-primary">Reset</button>
+			<button type="submit" class="btn btn-success">Submit</button>
+
+		<?=form_close()?>
 	</div>
 </div>
+
+<div class="panel panel-primary">
+  	<div class="panel-heading">
+    	<strong>Request(s)</strong>
+  	</div>
+  	<div class="panel-body">
+	  	<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Date filed</th>
+					<th>Date start</th>
+					<th>Date end</th>
+					<th>Pay</th>
+					<th>Type</th>
+					<th>Reason</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+		</table>
+  	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(':input').attr('required', true);
+
+		var table = $('.table').DataTable({
+			"ajax": '<?=site_url('leave/get')?>',
+			"columns": [
+				{ "data": "id"},
+				{ "data": "date_filed"},
+				{ "data": "date_start"},
+				{ "data": "date_end"},
+				{ "data": "pay"},
+				{ "data": "type"},
+				{ "data": "reason"},
+				{ "data": "status"},
+			]
+		});
+
+		$('form').submit(function(e) {
+			e.preventDefault();
+			var form = $(this);
+
+			$.ajax({
+				url: form.attr('action'),
+				data: form.serialize(),
+				type: form.attr('method'),
+				dataType: 'JSON'
+			})
+			.then(function(data) {
+				if (data.status) {
+					toastr.success(data.message, 'Success');
+					table.ajax.reload();
+				}
+			})
+		})
+	})
+</script>

@@ -52,7 +52,7 @@
               <ul class="nav navbar-nav">
                 <li class="<?php echo 'home' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main') ?>">Home</a></li>
                 <li class="<?php echo 'change_shift' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('schedule') ?>">Change Shift</a></li>
-                <li class="<?php echo 'leave' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/leave') ?>">Leave</a></li>
+                <li class="<?php echo 'leave' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('leave') ?>">Leave</a></li>
                 <li class="<?php echo 'overtime' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/overtime') ?>">Overtime</a></li>
                 <li class="<?php echo 'employees' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/employee') ?>">Employees</a></li>
                 <li class="<?php echo 'departments' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/department') ?>">Departments</a></li>
