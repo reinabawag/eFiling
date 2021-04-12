@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 31, 2021 at 02:58 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.1.30
+-- Host: localhost:3306
+-- Generation Time: Apr 12, 2021 at 06:10 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -159,7 +159,7 @@ INSERT INTO `employees` (`empcode`, `password`, `lname`, `fname`, `mname`, `dept
 ('032007', '$2y$10$FH.n.BDvw4smAbtHDqSma.2r6BISCNGHoicw4g77uxDIV1axIbv8e', 'BAGO', 'MA. VICTORIA', 'DE LEON', '200', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2007-08-06'),
 ('032407', '$2y$10$jjjjGKu/GPB6sXST/K8tsuNEzb/zjIbcaUuuEZAZ39Z2usRSXmNYK', 'BANNAGAO', 'LAWRENCE ARNEL', 'ACOSTA', '322', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2007-09-24'),
 ('032608', '$2y$10$I4SUgsT81sBmWGhUpC0f2eGnFwHt31FZaGnZmBQtxPyaUDQhgC1Ry', 'RUAR', 'FLORDELIZA', 'BISCO', '120', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2008-02-18'),
-('032808', '$2y$10$5IyDbaVungXSk66YGf2x3OVOHD3ZBkbwdzlfCTeGiSN683v5YIMDy', 'ASINAS', 'MARLON', 'DURAN', '150', b'0', b'0', b'0', b'1', NULL, NULL, NULL, '2008-02-26'),
+('032808', '$2y$10$5IyDbaVungXSk66YGf2x3OVOHD3ZBkbwdzlfCTeGiSN683v5YIMDy', 'ASINAS', 'MARLON', 'DURAN', '150', b'1', b'0', b'0', b'0', NULL, NULL, NULL, '2008-02-26'),
 ('034409', '$2y$10$U0S2jOjGfU.YxF8TrLxIr.pTCJ9pnh7O8EJJSHMuVmv6w7tTxoAdy', 'LUZANO', 'ROMEL', 'BUGARIN', '351', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-04-27'),
 ('034709', '$2y$10$OHcw.ZAMwYIiXC3g4k5iH.ANWpMEaYzETdktdcpVw3xUijfoX783y', 'ITLIONG', 'MARK GIL', 'ESTIBAL', '340', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-06-01'),
 ('035009', '$2y$10$4vQ1oxa59wwR6Q80u4Haqe/mv4SlNZQJ1vAKCdg3xvVVYJ6npW82K', 'PANOPIO', 'MELANIE', 'REFIL', '700', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-08-06'),
@@ -189,7 +189,7 @@ INSERT INTO `employees` (`empcode`, `password`, `lname`, `fname`, `mname`, `dept
 ('045516', '$2y$10$Bx1DNYfDn6uXp4pGhfvJPODdoD2cmiW2kvz47YmfepQCWcrcAWBaC', 'PEREZ', 'MARCH ROSE SHELL', 'PANES', '220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2016-09-13'),
 ('046016', '$2y$10$E9m1y1EriAaj9mbrvoZpluT.M6Md6K4TJh1tBfeGsh0KdB3LA/8tW', 'JAMORALIN', 'ANELE', 'BAUTISTA', '210', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2016-11-21'),
 ('046217', '$2y$10$3tctGKeYamXLYeofos16P.5/m9R6ugVTzbXn4W4cUnBeoNQzouH1C', 'RED', 'REYNANTE', 'PETILLA', '230', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-01-16'),
-('046417', '$2y$10$R3StQC/Otp5iWjQC9QaUwejjBF.w9jha3EpYKyAKadDJDvctBt8Ui', 'ABAWAG', 'REINHARD CIRE', 'ESCOBAR', '150', b'0', b'0', b'0', b'1', NULL, NULL, NULL, '2017-03-13'),
+('046417', '$2y$10$R3StQC/Otp5iWjQC9QaUwejjBF.w9jha3EpYKyAKadDJDvctBt8Ui', 'ABAWAG', 'REINHARD CIRE', 'ESCOBAR', '150', b'1', b'0', b'0', b'0', NULL, NULL, NULL, '2017-03-13'),
 ('046617', '$2y$10$4d8fKBg7gmeugrCa0MbqMOWuIY.sG4icQ5cC1yrVJHep1n/DgF.JK', 'MANDAL', 'MV LEBERTY', 'PAMOLERAS', '100', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-03-13'),
 ('046717', '$2y$10$acjUud8iegcQHyO4rHuaoO18mz19i/FoEMb5.eVrSCIJ5Siru5IbG', 'TOBIAS', 'EGAN', 'ODICTA', '600', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-03-23'),
 ('046817', '$2y$10$xzh.dlvy4wifLV/qYFZWLuH.hGid/G5x.bdqqcOVZsl1fX7XUYmdK', 'MALLETE', 'MONICA', 'BALDERAS', '220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-04-17'),
@@ -234,6 +234,37 @@ INSERT INTO `employees` (`empcode`, `password`, `lname`, `fname`, `mname`, `dept
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `leaves`
+--
+
+CREATE TABLE `leaves` (
+  `id` int(11) NOT NULL,
+  `empcode` varchar(6) NOT NULL,
+  `name` varchar(65) NOT NULL,
+  `date_filed` date NOT NULL,
+  `date_start` date NOT NULL,
+  `date_end` date NOT NULL,
+  `pay` varchar(65) NOT NULL,
+  `type` varchar(65) NOT NULL,
+  `reason` text NOT NULL,
+  `recommended_by` varchar(6) NOT NULL,
+  `approved_by` varchar(6) NOT NULL,
+  `rec_status` tinyint(1) NOT NULL,
+  `appr_status` tinyint(1) NOT NULL,
+  `status` varchar(10) DEFAULT 'PENDING'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `leaves`
+--
+
+INSERT INTO `leaves` (`id`, `empcode`, `name`, `date_filed`, `date_start`, `date_end`, `pay`, `type`, `reason`, `recommended_by`, `approved_by`, `rec_status`, `appr_status`, `status`) VALUES
+(1, '046417', 'ABAWAG, REINHARD CIRE ESCOBAR', '2021-04-09', '2021-04-09', '2021-04-09', 'without pay', 'Paternity', 'sa', '046417', '046417', 0, 0, 'PENDING'),
+(2, '046417', 'ABAWAG, REINHARD CIRE ESCOBAR', '2021-04-09', '2021-04-15', '2021-04-15', 'without pay', 'Vacation', 'Sa bahay lang', '046417', '029606', 0, 0, 'PENDING');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `overtimes`
 --
 
@@ -251,7 +282,7 @@ CREATE TABLE `overtimes` (
   `rec_status` bit(1) DEFAULT NULL,
   `appr_status` bit(1) DEFAULT NULL,
   `status` varchar(10) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `appr_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -260,16 +291,10 @@ CREATE TABLE `overtimes` (
 --
 
 INSERT INTO `overtimes` (`id`, `empcode`, `deptcode`, `date_filed`, `start_time`, `end_time`, `hrs`, `reason`, `rec_by`, `appr_by`, `rec_status`, `appr_status`, `status`, `create_date`, `appr_date`) VALUES
-(1, '046417', '150', '2021-03-27', '18:00:00', '22:00:00', 4, '', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-27 07:21:21', NULL),
-(2, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'April Fools', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:13', NULL),
-(3, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'ASASCFAGSHUIA<SAS', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:19', NULL),
-(4, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:22', NULL),
-(5, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:23', NULL),
-(6, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:23', NULL),
-(7, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:23', NULL),
-(8, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:24', NULL),
-(9, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LALALALALALA', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:24', NULL),
-(10, '047017', '150', '2021-03-29', '02:00:00', '14:00:00', 12, 'LEL', '046417', '029606', b'1', NULL, 'PENDING', '2021-03-29 06:15:28', NULL);
+(1, '046417', '150', '2021-04-09', '08:00:00', '17:00:00', 9, 'Holiday OT', '', '046417', b'1', b'1', 'APPROVED', '2021-04-08 10:47:29', NULL),
+(2, '046417', '150', '2021-04-08', '17:00:00', '22:00:00', 5, 'Web development', '032808', '046417', NULL, NULL, 'PENDING', '2021-04-08 17:48:55', NULL),
+(3, '046417', '150', '2021-04-09', '18:00:00', '22:00:00', 4, '', '046417', '029606', b'1', NULL, 'PENDING', '2021-04-09 15:46:17', NULL),
+(4, '046417', '150', '2021-04-14', '12:00:00', '17:00:00', 5, 'Saturday OT', '046417', '029606', NULL, NULL, 'PENDING', '2021-04-10 15:20:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -299,11 +324,8 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `emp`, `date_filed`, `purpose`, `from_date`, `to_date`, `from_time`, `to_time`, `reason`, `reliever`, `approver`, `personnel`, `approved`, `status`) VALUES
-(1, '046417', '2021-03-25 21:43:38', 'CHANGE SHIFT', '2021-03-26', '2021-03-26', '6:00am - 2:00pm', '2:00pm - 10:00pm', 'REASON', '', '046417', NULL, 1, 'APPROVED'),
-(2, '046417', '2021-03-25 21:59:56', 'CHANGE SHIFT', '2021-03-27', '2021-03-26', '6:00am - 2:00pm', '2:00pm - 10:00pm', 'SATURDAY CHANGE SCHEDULE', '', '046417', NULL, 1, 'APPROVED'),
-(3, '047017', '2021-03-26 14:03:10', 'WORK FROM HOME', '2021-03-29', '2021-04-01', '6:42', '9:123123123', 'Never Gonna Give You Up', 'Reinasdasdasdasd', '046417', NULL, 1, 'APPROVED'),
-(4, '046417', '2021-03-26 20:57:29', 'CHANGE SHIFT', '2021-03-31', '2021-03-31', '6:00am - 2:00pm', '2:00pm - 10:00pm', 'REASON', '', '046417', NULL, 1, 'APPROVED'),
-(5, '047017', '2021-03-29 14:14:03', 'CHANGE SHIFT', '2021-03-29', '2021-03-30', 'Kahit anong oras', 'Hanggang may oras', 'Pogi ako', '', '046417', NULL, 1, 'DENIED');
+(1, '046417', '2021-04-08 10:51:06', 'WORK FROM HOME', '2021-04-07', '2021-04-09', '2:00 pm to 10:00 pm', '8:00 am to 5:00 pm', 'home quarantine', '', '046417', NULL, 1, 'APPROVED'),
+(2, '046417', '2021-04-10 15:19:01', 'CHANGE SHIFT', '2021-04-12', '2021-04-30', '2:00 pm to 10:00 pm', '8:00 am to 5:00 pm', 'Back to normal schedule', '', '046417', NULL, 0, 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -378,6 +400,12 @@ ALTER TABLE `employees`
   ADD KEY `deptcode` (`deptcode`);
 
 --
+-- Indexes for table `leaves`
+--
+ALTER TABLE `leaves`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `overtimes`
 --
 ALTER TABLE `overtimes`
@@ -406,16 +434,22 @@ ALTER TABLE `changeshifts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `leaves`
+--
+ALTER TABLE `leaves`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `overtimes`
 --
 ALTER TABLE `overtimes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `trail`

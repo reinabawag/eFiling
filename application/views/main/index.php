@@ -51,6 +51,9 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Date Filed</th>
+					<th>Type</th>
+					<th>Reason</th>
 					<th>From</th>
 					<th>To</th>
 				</tr>
@@ -199,7 +202,18 @@
 			}, 'json');
 		});
 
-		var l_tbl = $('#l-tbl').DataTable();
+		var l_tbl = $('#l-tbl').DataTable({
+			"ajax": "<?= site_url('leave/getForApproval') ?>",
+			"columns": [
+	            { "data": "id" },
+	            { "data": "name" },
+				{ "data": "date_filed" },
+				{ "data": "type" },
+				{ "data": "reason" },
+	            { "data": "date_start" },
+	            { "data": "date_end" }
+	        ],
+		});
 
 
 		$.noConflict();

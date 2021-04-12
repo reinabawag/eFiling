@@ -32,4 +32,9 @@ class Leave_model extends CI_Model
     {
         return $this->db->get_where('leaves', ['empcode' => $empcode])->result();
     }
+
+    public function getForRecommendation($empcode)
+    {
+        return $this->db->get_where('leaves', ['recommended_by' => $empcode, 'rec_status' => FALSE])->result();
+    }
 }

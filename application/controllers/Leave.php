@@ -47,4 +47,23 @@ class Leave extends CI_Controller
     {
         echo json_encode(['data' => $this->leave_model->get($this->session->empcode)]);
     }
+
+    public function getForApproval()
+    {
+        $empcode = $this->session->empcode;
+
+        $emp = $this->employee_model->get($empcode);
+
+        if ($emp->divhead) {
+            $data = [];
+        } else {
+            $data = $this->leave_model->getForRecommendation($empcode);
+
+            foreach ($data as $value) {
+                $value->options = 'Hello'; 
+            }
+        }
+
+        echo json_encode(['data' => $data]);
+    }
 }
