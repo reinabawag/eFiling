@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<table class="table table-striped table-hover" id="ot-table">
+		<table class="table table-hover" id="ot-table">
 			<thead>
 				<tr>
 					<th>Record ID</th>

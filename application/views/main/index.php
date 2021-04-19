@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>OT Approval</strong></div>
 	<div class="panel-body">
-		<table class="table" id="ot-tbl">
+		<table class="table table-hover" id="ot-tbl">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -22,7 +22,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>Change Shift Approval</strong></div>
 	<div class="panel-body">
-		<table class="table" id="cs-tbl">
+		<table class="table table-hover" id="cs-tbl">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -46,7 +46,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>Leave Approval</strong></div>
 	<div class="panel-body">
-		<table class="table" id="l-tbl">
+		<table class="table table-hover" id="l-tbl">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -160,8 +160,8 @@
 	            { "data": "date_filed" },
 	            { "data": "from_time" },
 	            { "data": "to_time" },
-	            { "data": "from_date" },
-	            { "data": "to_date" },
+	            { "data": "from_time" },
+	            { "data": "to_time" },
 	            { "data": "reason" },
 	        ],
 	        "columnDefs": [
@@ -213,6 +213,20 @@
 	            { "data": "date_start" },
 	            { "data": "date_end" }
 	        ],
+	        "columnDefs": [
+                {
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+            ],
+		});
+
+		$('#l-tbl tbody').on('click', 'tr', function() {
+			var data = l_tbl.row( this ).data();
+			var id = data['id'];
+
+			
 		});
 
 
