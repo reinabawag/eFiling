@@ -129,6 +129,31 @@
   </div>
 </div>
 
+<div class="modal fade" id="leave-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Approve Leave</h4>
+      </div>
+      <div class="modal-body">
+	  	<input type="hidden" id="id" name="id">
+        <p><strong>name:</strong> <span id="name"></span></p>
+		<p><strong>date filed:</strong> <span id="date_filed"></span></p>
+		<p><strong>type:</strong> <span id="type"></span></p>
+		<p><strong>reason:</strong> <span id="reason"></span></p>
+		<p><strong>date from:</strong> <span id="date_start"></span></p>
+		<p><strong>date to:</strong> <span id="date_end"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-warning" id="leave-disapprove">disapprove</button>
+        <button type="button" class="btn btn-success" id="leave-approve">Approve</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		var ot_table = $('#ot-tbl').DataTable({
@@ -224,9 +249,44 @@
 
 		$('#l-tbl tbody').on('click', 'tr', function() {
 			var data = l_tbl.row( this ).data();
-			var id = data['id'];
 
+			$('#leave-modal input#id').val(data['id']);
+			$('#leave-modal span#name').text(data['name']);
+			$('#leave-modal span#date_filed').text(data['date_filed']);
+			$('#leave-modal span#type').text(data['type']);
+			$('#leave-modal span#reason').text(data['reason']);
+			$('#leave-modal span#date_start').text(data['date_start']);
+			$('#leave-modal span#date_end').text(data['date_end']);
+
+			$('#leave-modal').modal('show');
+		});
+
+		$('#leave-approve').click(function() {
+			var id = $('#leave-modal input#id').val();
 			
+			$.post('<?= site_url('leave/approve') ?>', {id: id, approve: true}, function(data) {
+				if (data.status) {
+					$('#leave-modal').modal('hide');
+				}
+			}, 'json').then(function() {
+				toastr.success('Leave Approved', 'Success');
+			}).then(function() {
+				l_tbl.ajax.reload();	
+			});
+		});
+
+		$('#leave-disapprove').click(function() {
+			var id = $('#leave-modal input#id').val();
+			
+			$.post('<?= site_url('leave/approve') ?>', {id: id, approve: false}, function(data) {
+				if (data.status) {
+					$('#leave-modal').modal('hide');
+				}
+			}, 'json').then(function() {
+				toastr.warning('Leave Denied', 'Success');
+			}).then(function() {
+				l_tbl.ajax.reload();	
+			});
 		});
 
 

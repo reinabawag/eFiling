@@ -33,7 +33,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Leave</label>
-						<select name="pay" id="" class="form-control">
+						<select name="pay" class="form-control">
 							<option value="with pay">With pay</option>
 							<option value="without pay">Without pay</option>
 						</select>
@@ -42,7 +42,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Application for</label>
-						<select name="type" id="" class="form-control">
+						<select name="type" class="form-control">
 							<option value="Vacation">Vacation</option>
 							<option value="Sick">Sick</option>
 							<option value="Emergency">Emergency</option>
