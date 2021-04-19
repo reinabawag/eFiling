@@ -95,30 +95,32 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Request(s)</div>
 	<div class="panel-body">
-		<table class="table table-hover">
-			<thead>
-				<th>ID</th>
-				<th>REQUEST FOR</th>
-				<th>FROM (DATE)</th>
-				<th>TO (DATE)</th>
-				<th>FROM (TIME)</th>
-				<th>TO (TIME)</th>
-				<th>STATUS</th>
-			</thead>
-			<tbody>
-				<?php foreach($schedules as $schedule): ?>
-					<tr>
-						<td><?=str_pad($schedule->id, 6, "0", STR_PAD_LEFT)?></td>
-						<td><?=$schedule->purpose?></td>
-						<td><?=$schedule->from_date?></td>
-						<td><?=$schedule->to_date?></td>
-						<td><?=$schedule->from_time?></td>
-						<td><?=$schedule->to_time?></td>
-						<td><?=$schedule->status?></td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<th>ID</th>
+					<th>REQUEST FOR</th>
+					<th>FROM (DATE)</th>
+					<th>TO (DATE)</th>
+					<th>FROM (TIME)</th>
+					<th>TO (TIME)</th>
+					<th>STATUS</th>
+				</thead>
+				<tbody>
+					<?php foreach($schedules as $schedule): ?>
+						<tr>
+							<td><?=str_pad($schedule->id, 6, "0", STR_PAD_LEFT)?></td>
+							<td><?=$schedule->purpose?></td>
+							<td><?=$schedule->from_date?></td>
+							<td><?=$schedule->to_date?></td>
+							<td><?=$schedule->from_time?></td>
+							<td><?=$schedule->to_time?></td>
+							<td><?=$schedule->status?></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

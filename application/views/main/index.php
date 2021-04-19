@@ -1,19 +1,21 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>OT Approval</strong></div>
 	<div class="panel-body">
-		<table class="table table-hover" id="ot-tbl">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Start</th>
-					<th>End</th>
-					<th>HRS</th>
-					<th>Date</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>	
+		<div class="table-responsive">
+			<table class="table table-hover" id="ot-tbl">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Start</th>
+						<th>End</th>
+						<th>HRS</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>	
 	</div>
 </div>
 
@@ -22,22 +24,24 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>Change Shift Approval</strong></div>
 	<div class="panel-body">
-		<table class="table table-hover" id="cs-tbl">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Purpose</th>
-					<th>Date Filed</th>
-					<th>From Date</th>
-					<th>To Date</th>
-					<th>From Shift</th>
-					<th>To Shift</th>
-					<th>Reason</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>	
+		<div class="table-responsive">
+			<table class="table table-hover" id="cs-tbl">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Purpose</th>
+						<th>Date Filed</th>
+						<th>From Date</th>
+						<th>To Date</th>
+						<th>From Shift</th>
+						<th>To Shift</th>
+						<th>Reason</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>	
 	</div>
 </div>
 
@@ -46,20 +50,22 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>Leave Approval</strong></div>
 	<div class="panel-body">
-		<table class="table table-hover" id="l-tbl">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Date Filed</th>
-					<th>Type</th>
-					<th>Reason</th>
-					<th>From</th>
-					<th>To</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>	
+		<div class="table-responsive">
+			<table class="table table-hover" id="l-tbl">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Date Filed</th>
+						<th>Type</th>
+						<th>Reason</th>
+						<th>From</th>
+						<th>To</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>	
 	</div>
 </div>
 
