@@ -41,14 +41,12 @@ class Login extends CI_Controller
 			$result = $this->employee_model->auth_employee($username, $password);
 			if ($result == FALSE) {
 				echo json_encode(['status' => FALSE, 'msg' => ucwords('incorrect User ID or Password.'), 'validation' => $error]);
-			} else {
-				$session = ['empcode' => $result->empcode, 'name' => $result->name, 'deptcode' => $result->deptcode];
-				
+			} else {				
 				foreach ($result as $key => $value) {
 					$this->session->set_userdata($key, $value);
 				}
 
-				$emp = $this->employee_model->get($session['empcode']);
+				$emp = $this->employee_model->get($result->empcode);
 				$url = site_url('main');
 				echo json_encode(['status' => TRUE, 'url' => $url]);
 			}
