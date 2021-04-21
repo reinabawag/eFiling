@@ -96,7 +96,7 @@
 	<div class="panel-heading">Request(s)</div>
 	<div class="panel-body">
 		<div class="table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover table-bordered">
 				<thead>
 					<th>ID</th>
 					<th>REQUEST FOR</th>

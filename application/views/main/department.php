@@ -1,4 +1,4 @@
-<table id="dept_table" class="table table-hover ">
+<table id="dept_table" class="table table-hover table-bordered">
 	<thead>
 		<th>Dept Code</th>
 		<th>Description</th>

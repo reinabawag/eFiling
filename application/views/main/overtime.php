@@ -47,19 +47,21 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<table class="table table-hover" id="ot-table">
-			<thead>
-				<tr>
-					<th>Record ID</th>
-					<th>Start</th>
-					<th>End</th>
-					<th>HRS</th>
-					<th>Date</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-hover table-bordered" id="ot-table">
+				<thead>
+					<tr>
+						<th>Record ID</th>
+						<th>Start</th>
+						<th>End</th>
+						<th>HRS</th>
+						<th>Date</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

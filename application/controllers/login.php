@@ -47,7 +47,10 @@ class Login extends CI_Controller
 				foreach ($result as $key => $value) {
 					$this->session->set_userdata($key, $value);
 				}
-				echo json_encode(['status' => TRUE, 'msg' => ucwords('Successfully logged In.'), 'url' => site_url('main'), 'validation' => $error]);
+
+				$emp = $this->employee_model->get($session['empcode']);
+				$url = site_url('main');
+				echo json_encode(['status' => TRUE, 'url' => $url]);
 			}
 		}
 	}

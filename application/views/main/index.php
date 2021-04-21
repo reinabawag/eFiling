@@ -162,6 +162,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		$('table').addClass('table-bordered');
 		var ot_table = $('#ot-tbl').DataTable({
 			"ajax": "<?php echo site_url('main/get_ot_for_approval') ?>",
 			"columns": [

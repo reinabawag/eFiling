@@ -15,8 +15,12 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/toastr.min.css') ?>">
     <style>
         body {
-          min-height: 2000px;
+          /* min-height: 2000px; */
           padding-top: 5%;
+        }
+
+        tbody tr {
+          cursor: pointer;
         }
     </style>
 

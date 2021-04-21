@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
 	<div class="panel-heading"><strong>File leave</strong></div>
 	<div class="panel-body">
 		<?=form_open('leave/create')?>
@@ -83,25 +83,27 @@
 	</div>
 </div>
 
-<div class="panel panel-primary">
+<div class="panel panel-default">
   	<div class="panel-heading">
     	<strong>Request(s)</strong>
   	</div>
   	<div class="panel-body">
-	  	<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Date filed</th>
-					<th>Date start</th>
-					<th>Date end</th>
-					<th>Pay</th>
-					<th>Type</th>
-					<th>Reason</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Date filed</th>
+						<th>Date start</th>
+						<th>Date end</th>
+						<th>Pay</th>
+						<th>Type</th>
+						<th>Reason</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
   	</div>
 </div>
 
@@ -120,7 +122,14 @@
 				{ "data": "type"},
 				{ "data": "reason"},
 				{ "data": "status"},
-			]
+			],
+			"columnDefs": [
+                {
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+            ],
 		});
 
 		$('form').submit(function(e) {
