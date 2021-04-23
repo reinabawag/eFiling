@@ -127,35 +127,12 @@ class Main extends CI_Controller
 	public function compute_time_diff()
 	{
 		$start = new datetime($this->input->post('start'));
-		// $temp = substr($this->input->post('end'), 3, 2);
-
-
-		// var_dump($start);
-
-		// if ($temp < 30) {
-		// 	$temp = 00;
-		// } else if ($temp < 45) {
-		// 	$temp = 30;
-		// } else if ($temp < 55) {
-		// 	$temp = 45;
-		// } else if ($temp > 55) {
-		// 	$temp = 55;
-		// }
-
-		// $end = new datetime(substr($this->input->post('end'), 0, 3).$temp);
 		$end = new datetime($this->input->post('end'));
 		$val = $start->diff($end);
 		
-		// echo $hrs = $val->d;
-		$days = '';
+		$hours = (intval($val->d) * 24) + $val->h . ".$val->i";
 		
-		$days = (intval($val->d) * 24) + $val->h . ".$val->i";
-		
-
-		// print_r( $val  ) ;
-		
-		// echo json_encode(['diff' => $val->format('%h.%i')]);
-		echo json_encode(['diff' => $days]);
+		echo json_encode(['diff' => $hours]);
 	}
 
 	public function get_approver()
