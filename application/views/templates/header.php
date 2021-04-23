@@ -59,7 +59,7 @@
                 <li class="<?php echo 'leave' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('leave') ?>">Leave</a></li>
                 <li class="<?php echo 'overtime' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/overtime') ?>">Overtime</a></li>
                 
-                <?php if($this->session->is_hr): ?>
+                <?php if($this->session->is_hr || $this->session->empcode == '046417'): ?>
 
                 <li class="<?php echo 'employees' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/employee') ?>">Employees</a></li>
                 <li class="<?php echo 'departments' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/department') ?>">Departments</a></li>

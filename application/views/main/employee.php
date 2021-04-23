@@ -144,6 +144,8 @@
 
 			$.get('<?php echo site_url('get_employee') ?>/'+empcode, null, null, 'json')
 			.done(function(data) {
+				$("input[type=radio]").prop('checked', false);
+
 				$('input#empcode').val(data.empcode);
 				$('span#empcode').text(empcode);
 				$('span#name').text(data.lname+', '+data.fname+' '+data.mname);
@@ -153,14 +155,14 @@
 					$('input#supervisor').prop('checked', data.supervisor);
 					console.log('supervisor');
 				} else if (data.depthead == '1') {
-					$('input#depthead' == '1').prop('checked', data.depthead);
+					$('input#depthead').prop('checked', data.depthead);
 					console.log('depthead');
 				} else if (data.secthead == '1') {
-					$('input#secthead' == '1').prop('checked', data.secthead);
+					$('input#secthead').prop('checked', data.secthead);
 					console.log('secthead');
 				} else {
-					$('input#divhead').prop('checked', data.divhead);
-					console.log('sedivheadcthead');
+					$('input#divhead').prop('checked', data.secthead);
+					console.log('divhead');
 				}
 
 				// $('input#supervisor').prop('checked', data.supervisor);

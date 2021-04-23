@@ -25,6 +25,10 @@ class Leave_model extends CI_Model
 
     public function insert($data)
     {
+        foreach ($data as $key => $value) {
+            $data[$key] = $value == '' ? NULL : $value;
+        }
+
         return $this->db->insert('leaves', $data);
     }
 
@@ -50,7 +54,6 @@ class Leave_model extends CI_Model
         } else {
             return $this->db->where('id', $id)->update('leaves', ['rec_status' => FALSE, 'status' => 'DISAPPROVED BY RECOMMENDER']);
         }
-        
     }
 
     public function Approval($id, $approve)
@@ -60,5 +63,10 @@ class Leave_model extends CI_Model
         } else {
             return $this->db->where('id', $id)->update('leaves', ['appr_status' => FALSE, 'status' => 'DISAPPROVED BY APPROVER']);
         }
+    }
+
+    public function GetLeave($id)
+    {
+        return $this->db->get_where('leaves', ['id' => $id])->row();
     }
 }

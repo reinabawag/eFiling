@@ -19,7 +19,10 @@ class Main extends CI_Controller
 		$data['active_page'] = 'home';
 		$this->load->view('templates/header', $data);
 
-		if (($this->session->supervisor) || ($this->session->depthead) || ($this->session->secthead) || ($this->session->divhead)) {
+		$empcode = $this->session->empcode;
+		$emp = $this->employee_model->get($empcode);
+
+		if (($emp->supervisor) || ($emp->depthead) || ($emp->secthead) || ($emp->divhead)) {
 			$this->load->view('main/index', $data);
 		} else {
 			$this->load->view('employee/index', $data);
@@ -190,8 +193,9 @@ class Main extends CI_Controller
 	public function get_ot_for_approval()
 	{
 		$empcode = $this->session->empcode;
+		$emp = $this->employee_model->get($empcode);
 
-		if (($this->session->supervisor) || ($this->session->depthead) || ($this->session->secthead)) {
+		if (($emp->supervisor) || ($emp->depthead) || ($emp->secthead)) {
 			$result = $this->overtime_model->get_ot_for_recommendation($empcode);
 		} else {
 			$result = $this->overtime_model->get_ot_for_approval($empcode);
@@ -204,8 +208,11 @@ class Main extends CI_Controller
 	{
 		$recid = $this->input->post('id');
 		$status = $this->input->post('approve');
+		
+		$empcode = $this->session->empcode;
+        $emp = $this->employee_model->get($empcode);
 
-		if (($this->session->supervisor) || ($this->session->depthead) || ($this->session->secthead)) {
+		if (($emp ->supervisor) || ($emp ->depthead) || ($emp ->secthead)) {
 			$result = $this->overtime_model->approve_ot_recommendation($recid);
 
 			if ($this->overtime_model->getOvertime($recid)->appr_by == NULL) {
@@ -220,5 +227,32 @@ class Main extends CI_Controller
 		//$this->trail_model->insert('OT', $recid, $this->session->empcode, $status);
 
 		echo json_encode(['status' => $result]);
+	}
+
+	public function backup()
+	{
+		// Load the DB utility class
+		$this->load->dbutil();
+
+		$prefs = array(
+			'ignore'        => array('changeshifts'),       // List of tables to omit from the backup
+			'format'        => 'zip',                       // gzip, zip, txt
+			'filename'      => 'mybackup.sql',              // File name - NEEDED ONLY WITH ZIP FILES
+			'add_drop'      => TRUE,                        // Whether to add DROP TABLE statements to backup file
+			'add_insert'    => TRUE,
+			'foreign_key_checks' => FALSE                        // Whether to add INSERT data to backup file
+		);
+
+		// Backup your entire database and assign it to a variable
+		$backup = $this->dbutil->backup($prefs);
+
+		// Load the file helper and write the file to your server
+
+		try {
+			$this->load->helper('file');
+			write_file('db/db_'.time().'.sql.zip', $backup);
+		} catch (Exception $th) {
+			print_r($th);
+		}
 	}
 }

@@ -24,10 +24,15 @@ class Leave extends CI_Controller
             $data['recommender'][$value->empcode] = $value->name;
         }
 
-        foreach ($this->employee_model->get_approver($this->session->deptcode) as $key => $value) {
-            $data['approver'][$value->empcode] = $value->name;
-        }
+        $approvers = $this->employee_model->get_approver($this->session->deptcode);
 
+        if (empty($approvers)) {
+            $data['approver'][''] = 'N.A';
+        } else {
+            foreach ($approvers as $key => $value) {
+                $data['approver'][$value->empcode] = $value->name;
+            }
+        }
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('main/leave');
@@ -51,7 +56,6 @@ class Leave extends CI_Controller
     public function getForApproval()
     {
         $empcode = $this->session->empcode;
-
         $emp = $this->employee_model->get($empcode);
 
         if ($emp->divhead) {
@@ -70,9 +74,13 @@ class Leave extends CI_Controller
         $approve = $this->input->post('approve') == 'true' ? TRUE : FALSE;
 
         $emp = $this->employee_model->get($empcode);
+        $leave = $this->leave_model->GetLeave($id);
 
         if ($emp->divhead) {
             $data = $this->leave_model->Approval($id, $approve);
+        } elseif($leave->approved_by == '') {
+            $data = $this->leave_model->Approval($id, $approve);
+            $data = $this->leave_model->approveForRecommendation($id, $approve);
         } else {
             $data = $this->leave_model->approveForRecommendation($id, $approve);
         }

@@ -18,13 +18,13 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Start of leave</label>
-						<input type="date" class="form-control" name="date_start" placeholder="Start of leave">
+						<input type="date" class="form-control" name="date_start" placeholder="Start of leave" required>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">End of leave</label>
-						<input type="date" class="form-control" name="date_end" placeholder="End of leave">
+						<input type="date" class="form-control" name="date_end" placeholder="End of leave" required>
 					</div>
 				</div>
 			</div>
@@ -33,7 +33,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Leave</label>
-						<select name="pay" class="form-control">
+						<select name="pay" class="form-control" required>
 							<option value="with pay">With pay</option>
 							<option value="without pay">Without pay</option>
 						</select>
@@ -42,7 +42,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Application for</label>
-						<select name="type" class="form-control">
+						<select name="type" class="form-control" required>
 							<option value="Vacation">Vacation</option>
 							<option value="Sick">Sick</option>
 							<option value="Emergency">Emergency</option>
@@ -58,7 +58,7 @@
 
 			<div class="form-group">
 				<label for="">Reason</label>
-				<textarea name="reason" id="" class="form-control" cols="30" rows="3" placeholder="Kindly state your reason here"></textarea>
+				<textarea name="reason" id="" class="form-control" cols="30" rows="3" placeholder="Kindly state your reason here" required></textarea>
 			</div>
 
 			<div class="row">
@@ -109,8 +109,6 @@
 
 <script>
 	$(document).ready(function() {
-		$(':input').attr('required', true);
-
 		var table = $('.table').DataTable({
 			"ajax": '<?=site_url('leave/get')?>',
 			"columns": [
