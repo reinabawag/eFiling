@@ -18,11 +18,11 @@
 				</div>
 				<div class="form-group">
 					<label for="start">Start</label>
-					<input type="time" name="start" class="form-control" id="start" value="<?php echo date('h:i', time()) ?>" required>
+					<input type="datetime-local" name="start" class="form-control" id="start" value="" required>
 				</div>
 				<div class="form-group">
 					<label for="end">End</label>
-					<input type="time" name="end" class="form-control" id="end" value="<?php echo date('h:i', time()) ?>" required>
+					<input type="datetime-local" name="end" class="form-control" id="end" value="" required>
 				</div>
 				<div class="form-group">
 					<label for="computed_time">HRS</label>
@@ -130,7 +130,7 @@
 			}
 		};
 
-		$('input#end').on('keyup', function(e) {
+		$('input#end').on('change', function(e) {
 			e.preventDefault();
 
 			var start = $('input#start').val();

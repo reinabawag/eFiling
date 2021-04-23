@@ -44,14 +44,6 @@ class Main extends CI_Controller
 
 	public function get_employee($empcode)
 	{
-		// var_dump($this->input->is_ajax_request());
-		// var_dump("FALSE");
-
-		// if ($this->input->is_ajax_request() === "FALSE") {
-		// 	die('BITCH');
-		// }
-		
-
 		$result = $this->employee_model->get($empcode);
 		echo json_encode($result);
 	}
@@ -65,11 +57,6 @@ class Main extends CI_Controller
 	public function update_employee()
 	{
 		$empcode = $this->input->post('empcode');
-		// $supervisor = $this->input->post('supervisor');
-		// $depthead = $this->input->post('depthead');
-		// $secthead = $this->input->post('secthead');
-		// $divhead = $this->input->post('divhead');
-
 		$supervisor = false;
 		$depthead = false;
 		$secthead = false;
@@ -137,35 +124,38 @@ class Main extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	// public function change_shift()
-	// {
-	// 	$data['active_page'] = 'change_shift';
-	// 	$data['approvers'] = $this->employee_model->get_all_approvers($this->session->deptcode);
-
-	// 	$this->load->view('templates/header', $data);
-	// 	$this->load->view('main/change_shift');
-	// 	$this->load->view('templates/footer');
-	// }
-
 	public function compute_time_diff()
 	{
 		$start = new datetime($this->input->post('start'));
-		$temp = substr($this->input->post('end'), 3, 2);
+		// $temp = substr($this->input->post('end'), 3, 2);
 
-		if ($temp < 30) {
-			$temp = 00;
-		} else if ($temp < 45) {
-			$temp = 30;
-		} else if ($temp < 55) {
-			$temp = 45;
-		} else if ($temp > 55) {
-			$temp = 55;
-		}
 
-		$end = new datetime(substr($this->input->post('end'), 0, 3).$temp);
-		$val = $end->diff($start);
+		// var_dump($start);
+
+		// if ($temp < 30) {
+		// 	$temp = 00;
+		// } else if ($temp < 45) {
+		// 	$temp = 30;
+		// } else if ($temp < 55) {
+		// 	$temp = 45;
+		// } else if ($temp > 55) {
+		// 	$temp = 55;
+		// }
+
+		// $end = new datetime(substr($this->input->post('end'), 0, 3).$temp);
+		$end = new datetime($this->input->post('end'));
+		$val = $start->diff($end);
 		
-		echo json_encode(['diff' => $val->format('%h.%i')]);
+		// echo $hrs = $val->d;
+		$days = '';
+		
+		$days = (intval($val->d) * 24) + $val->h . ".$val->i";
+		
+
+		// print_r( $val  ) ;
+		
+		// echo json_encode(['diff' => $val->format('%h.%i')]);
+		echo json_encode(['diff' => $days]);
 	}
 
 	public function get_approver()
