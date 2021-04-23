@@ -60,8 +60,10 @@ class Overtime_model extends CI_Model
 		$this->rec_by = $rec_by;
 		$this->appr_by = $appr_by;
 
-		if ($rec_by == '')
-			$this->rec_status = true;
+		if ($appr_by == '') {
+			$this->appr_by = NULL;
+			$this->appr_status = TRUE;
+		}
 
 		$this->status = 'PENDING';
 
@@ -109,7 +111,7 @@ class Overtime_model extends CI_Model
 		$this->db->select("id, e.empcode, CONCAT(lname, ', ', fname, ' ', mname) AS name, start_time, end_time, hrs, date_filed, reason");
 		$this->db->join('employees as e', 'e.empcode = overtimes.empcode');
 		$this->db->order_by('create_date', 'asc');
-		$result = $this->db->get_where('overtimes', ['rec_by' => $empcode, 'status' => 'PENDING', 'appr_status' => NULL, 'rec_status' => NULL]);
+		$result = $this->db->get_where('overtimes', ['rec_by' => $empcode, 'status' => 'PENDING', 'rec_status' => NULL]);
 
 		// die($this->db->last_query());
 		return $result->result();
@@ -143,5 +145,10 @@ class Overtime_model extends CI_Model
 	{
 		$this->db->where('id', $recid);
 		return $this->db->update('overtimes', ['appr_status' => TRUE, 'status' => 'APPROVED']);
+	}
+
+	public function getOvertime($recId)
+	{
+		return $this->db->get_where('overtimes', ['id' => $recId])->row();
 	}
 }

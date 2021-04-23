@@ -207,11 +207,15 @@ class Main extends CI_Controller
 
 		if (($this->session->supervisor) || ($this->session->depthead) || ($this->session->secthead)) {
 			$result = $this->overtime_model->approve_ot_recommendation($recid);
+
+			if ($this->overtime_model->getOvertime($recid)->appr_by == NULL) {
+				$this->overtime_model->approve_ot_approver($recid);
+			}
 		} else {
 			$result = $this->overtime_model->approve_ot_approver($recid);
 		}
 
-		$this->load->model('trail_model');
+		// $this->load->model('trail_model');
 
 		//$this->trail_model->insert('OT', $recid, $this->session->empcode, $status);
 

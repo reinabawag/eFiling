@@ -100,12 +100,16 @@
 				})
 				.then(function(data){
 					$('select#approver').empty()
-					$.each(data, function(index, elem) {
-						$('select#approver').append('<option value='+elem.empcode+'>'+elem.name+'</option>');
-						// $('select#rec_approver').append('<option value='+elem.empcode+'>'+elem.name+'</option>');
-					});
+					if (data.length == 0) {
+						$('select#approver').append('<option value=\'\'>N.A</option>');
+					} else {
+						$.each(data, function(index, elem) {
+							$('select#approver').append('<option value='+elem.empcode+'>'+elem.name+'</option>');
+							// $('select#rec_approver').append('<option value='+elem.empcode+'>'+elem.name+'</option>');
+						});
+					}
 
-						return $.get('<?php echo site_url('main/get_rec_approver') ?>', {deptcode: deptcode}, null, 'json');
+					return $.get('<?php echo site_url('main/get_rec_approver') ?>', {deptcode: deptcode}, null, 'json');
 				})
 				.then(function(data){
 					$('select#rec_approver').empty();
