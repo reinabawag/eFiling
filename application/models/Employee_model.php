@@ -136,7 +136,7 @@ class Employee_model extends CI_Model
 		$this->db->select("*, CONCAT(lname, ', ', fname, ' ', mname) AS name");
 		$result = $this->db->get_where('employees', ['empcode' => $username])->row();
 
-		if ((count($result) > 0 ) && (password_verify($password, $result->password))) {
+		if ($result && password_verify($password, $result->password)) {
 			return $result;
 		} else {
 			return FALSE;

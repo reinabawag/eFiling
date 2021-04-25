@@ -89,23 +89,6 @@ class Overtime_model extends CI_Model
 		return $query->result();
 	}
 
-	public function import()
-	{
-		$pserver = $this->load->database('pserver', TRUE);
-		$query = $pserver->query('SELECT deptcode, deptdescription FROM departmentfile');
-
-		try {
-			foreach ($query->result() as $key) {
-				if (count($this->if_exist($key->deptcode)) == 0) {
-					$this->insert($key->deptcode, $key->deptdescription, 'ACTIVE');
-				}
-			}
-			return TRUE;
-		} catch (Exception $e) {
-			return $e;	
-		}
-	}
-
 	public function get_ot_for_recommendation($empcode)
 	{
 		$this->db->select("id, e.empcode, CONCAT(lname, ', ', fname, ' ', mname) AS name, start_time, end_time, hrs, date_filed, reason");
