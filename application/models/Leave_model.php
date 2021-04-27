@@ -19,17 +19,26 @@ class Leave_model extends CI_Model
 
     public function __construct()
     {
-        parent::__construct();
         $this->load->database();
     }
 
-    public function insert($data)
+    public function insert()
     {
-        foreach ($data as $key => $value) {
-            $data[$key] = $value == '' ? NULL : $value;
-        }
+        $this->empcode = $this->input->post('empcode');
+        $this->name = $this->input->post('name');
+        $this->date_filed = $this->input->post('date_filed');
+        $this->date_start = $this->input->post('date_start');
+        $this->date_end = $this->input->post('date_end');
+        $this->pay = $this->input->post('pay');
+        $this->type = $this->input->post('type');
+        $this->reason = $this->input->post('reason');
+        $this->recommended_by = $this->input->post('recommended_by') == '' ? NULL : $this->input->post('recommended_by');
+        $this->approved_by = $this->input->post('approved_by');
+        $this->rec_status = $this->input->post('recommended_by') == '' ? TRUE : FALSE;
+        $this->appr_status = FALSE;
+        $this->status = 'PENDING';
 
-        return $this->db->insert('leaves', $data);
+        return $this->db->insert('leaves', $this);
     }
 
     public function get($empcode)
@@ -43,7 +52,7 @@ class Leave_model extends CI_Model
     }
 
     public function getForApproval($empcode)
-    {
+    {   
         return $this->db->get_where('leaves', ['approved_by' => $empcode, 'rec_status' => TRUE, 'status' => 'PENDING'])->result();
     }
 

@@ -20,8 +20,14 @@ class Leave extends CI_Controller
         $data['recommender'] = [];
         $data['approver'] = [];
 
-        foreach ($this->employee_model->get_rec_approver($this->session->deptcode) as $key => $value) {
-            $data['recommender'][$value->empcode] = $value->name;
+        $recommenders = $this->employee_model->get_rec_approver($this->session->deptcode);
+
+        if (empty($recommenders)) {
+            $data['recommender'][''] = 'N.A';
+        } else {
+            foreach ($recommenders as $key => $value) {
+                $data['recommender'][$value->empcode] = $value->name;
+            }
         }
 
         $approvers = $this->employee_model->get_approver($this->session->deptcode);
@@ -41,7 +47,7 @@ class Leave extends CI_Controller
 
     public function create()
     {
-        if ($this->leave_model->insert($this->input->post())) {
+        if ($this->leave_model->insert()) {
             echo json_encode(['status' => TRUE, 'message' => 'Leave request created!']);
         } else {
             echo json_encode(['status' => FALSE, 'message' => "There's a problem creating request!"]);

@@ -22,18 +22,6 @@
 						</select>
 					</div>
 				</div>
-				<!-- <div class="col-md-6">
-					<div class="form-group">
-						<label for="alt">ALTERNATIVE WORK SCHEDULE</label>
-						<select name="alt" id="alt" class="form-control" disabled>
-							<option value=""></option>
-							<option value="WORK FROM HOME">WORK FROM HOME</option>
-							<option value="FULL COMPRESSED WORK WEEK">FULL COMPRESSED WORK WEEK</option>
-							<option value="ALTERNATING WORK SCHEDULE">ALTERNATING WORK SCHEDULE</option>
-							<option value="TELECOMMUTING">TELECOMMUTING</option>
-						</select>
-					</div>
-				</div> -->
 			</div>
 			<div class="row">			
 				<div class="col-md-6">
