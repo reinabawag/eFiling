@@ -20,7 +20,6 @@ class Overtime_model extends CI_Model
 	
 	function __construct()
 	{
-		parent::__construct();
 		$this->load->database();
 	}
 
@@ -59,6 +58,11 @@ class Overtime_model extends CI_Model
 		$this->reason = $reason;
 		$this->rec_by = $rec_by;
 		$this->appr_by = $appr_by;
+		
+		if ($rec_by == '') {
+			$this->rec_by = NULL;
+			$this->rec_status = TRUE;
+		}
 
 		if ($appr_by == '') {
 			$this->appr_by = NULL;
@@ -127,7 +131,7 @@ class Overtime_model extends CI_Model
 	public function approve_ot_approver($recid)
 	{
 		$this->db->where('id', $recid);
-		return $this->db->update('overtimes', ['appr_status' => TRUE, 'status' => 'APPROVED']);
+		return $this->db->update('overtimes', ['appr_status' => TRUE, 'rec_status' => TRUE, 'status' => 'APPROVED']);
 	}
 
 	public function getOvertime($recId)
