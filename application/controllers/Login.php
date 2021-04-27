@@ -23,7 +23,7 @@ class Login extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function auth()
+	public function auth($id)
 	{
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');

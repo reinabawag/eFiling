@@ -36,41 +36,18 @@
 		<p><span id="department"></span></p>
 		
 		<strong>Approver</strong>
-		<!-- <div class="checkbox">
-			<label>
-				<input type="checkbox" id="supervisor" name="supervisor"> Supervisor
-			</label>
-		</div> -->
 
 		<div class="radio">
 			<label><input type="radio" name="optradio" id="supervisor" value="supervisor">Supervisor</label>
 		</div>
 
-		<!-- <div class="checkbox">
-			<label>
-				<input type="checkbox" id="depthead" name="depthead"> Department Head
-			</label>
-		</div> -->
-
 		<div class="radio">
 			<label><input type="radio" name="optradio" id="depthead" value="depthead">Department Head</label>
 		</div>
 
-		  <!-- <div class="checkbox">
-		    <label>
-		      <input type="checkbox" id="secthead" name="secthead"> Section Head
-		    </label>
-		  </div> -->
-
 		<div class="radio">
 			<label><input type="radio" name="optradio" id="secthead" value="secthead">Section Head</label>
 		</div>
-
-		<!-- <div class="checkbox">
-			<label>
-				<input type="checkbox" id="divhead" name="divhead"> Division Head
-			</label>
-		</div> -->
 
 		<div class="radio">
 			<label><input type="radio" name="optradio" id="divhead" value="divhead">Division Head</label>
@@ -161,14 +138,9 @@
 					$('input#secthead').prop('checked', data.secthead);
 					console.log('secthead');
 				} else {
-					$('input#divhead').prop('checked', data.secthead);
+					$('input#divhead').prop('checked', data.div);
 					console.log('divhead');
 				}
-
-				// $('input#supervisor').prop('checked', data.supervisor);
-				// $('input#depthead').prop('checked', data.depthead);
-				// $('input#secthead').prop('checked', data.secthead);
-				// $('input#divhead').prop('checked', data.divhead);
 
 				$('input#is_hr').prop('checked', data.is_hr);
 				$('input#is_payroll').prop('checked', data.is_payroll);

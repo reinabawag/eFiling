@@ -65,8 +65,8 @@
 							$('input#'+index).parent('div').addClass('has-error');
 							$("span#"+index).html(elem);
 						} else {
-							$('input#'+index).parent('div').removeClass('has-error').addClass('has-success');
-							$("span#"+index+"").html('');
+							$('input#'+index).parent('div').removeClass('has-error').addClass('has-warning');
+							$("span#"+index+"").html(elem);
 						}
 					});
 					
