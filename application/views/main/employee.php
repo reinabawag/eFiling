@@ -142,9 +142,11 @@
 					console.log('divhead');
 				}
 
-				$('input#is_hr').prop('checked', data.is_hr);
-				$('input#is_payroll').prop('checked', data.is_payroll);
-				$('input#is_audit').prop('checked', data.is_audit);
+				$('input#is_hr').prop('checked', parseInt(data.is_hr));
+				$('input#is_payroll').prop('checked', parseInt(data.is_payroll));
+				$('input#is_audit').prop('checked', parseInt(data.is_audit));
+
+				console.log(data);
 
 				$('#myModal').modal('show');
 			})

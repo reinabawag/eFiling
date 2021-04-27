@@ -80,9 +80,9 @@ class Employee_model extends CI_Model
 		$this->depthead = $depthead;
 		$this->secthead = $secthead;
 		$this->divhead = $divhead;
-		$this->is_hr = $is_hr;
-		$this->is_payroll = $is_payroll;
-		$this->is_audit = $is_audit;
+		$this->is_hr = $is_hr == 'on' ? TRUE : FALSE;
+		$this->is_payroll = $is_payroll == 'on' ? TRUE : FALSE;
+		$this->is_audit = $is_audit == 'on' ? TRUE : FALSE;
 
 		return $this->db->update('employees', $this, array('empcode' => $empcode));
 	}
