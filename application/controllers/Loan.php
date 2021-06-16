@@ -6,7 +6,7 @@ class Loan extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(['url']);
+		$this->load->helper(['url', 'date', 'html']);
 		$this->load->library(['form_validation', 'session']);
 	}
 
@@ -27,6 +27,30 @@ class Loan extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('loan_model');
+
+		$data['active_page'] = 'loan';
+		$data['loans'] = $this->loan_model->get_loans();
+
+		$this->load->view('templates/header', $data);
 		$this->load->view('loan/index');
+		$this->load->view('templates/footer');
+	}
+
+	public function create()
+	{
+		$this->load->model('loan_model');
+
+		$this->form_validation->set_rules('amount', 'Amount', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('loan/create');
+			$this->load->view('templates/footer');
+		} else {
+			$this->loan_model->create();
+
+			redirect('/loan/index');
+		}
+		
 	}
 }

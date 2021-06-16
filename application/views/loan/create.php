@@ -19,9 +19,9 @@
           padding-top: 5%;
         }
 
-        /* tbody tr {
+        tbody tr {
           cursor: pointer;
-        } */
+        }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -54,46 +54,21 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="<?php echo 'home' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main') ?>">Home</a></li>
-                <li class="<?php echo 'change_shift' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('schedule') ?>">Change Shift</a></li>
-                <li class="<?php echo 'leave' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('leave') ?>">Leave</a></li>
-                <li class="<?php echo 'overtime' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/overtime') ?>">Overtime</a></li>
-
-                <li class="<?php echo 'undertime' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('undertime/index') ?>">Undertime</a></li>
-                <li class="<?php echo 'loan' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('loan/index') ?>">Loan</a></li>
-
+                <li class=""><a href="<?php echo site_url('main') ?>">Home</a></li>
+                <li class=""><a href="<?php echo site_url('schedule') ?>">Change Shift</a></li>
+                <li class=""><a href="<?php echo site_url('leave') ?>">Leave</a></li>
+                <li class=""><a href="<?php echo site_url('main/overtime') ?>">Overtime</a></li>
+				        <li class="active"><a href="<?php echo site_url('loan') ?>">Loan</a></li>
+                
                 <?php if($this->session->is_hr || $this->session->empcode == '046417'): ?>
 
-                <li class="<?php echo 'employees' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/employee') ?>">Employees</a></li>
-                <li class="<?php echo 'departments' == $active_page ? 'active' : '' ?>"><a href="<?php echo site_url('main/department') ?>">Departments</a></li>
+					<li class=""><a href="<?php echo site_url('main/employee') ?>">Employees</a></li>
+					<li class=""><a href="<?php echo site_url('main/department') ?>">Departments</a></li>
                 
                 <?php endif; ?>
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">For Approval <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
               <ul class="nav navbar-nav navbar-right">
+				  <li><a href="#"><?php echo $this->session->name ? $this->session->name : 'Guest' ?></a></li>
                 <li><a href="<?php echo $this->session->has_userdata('empcode') ? site_url('logout') : site_url('login') ?>"><?php echo $this->session->has_userdata('empcode') ? 'Logout' : 'Login' ?></a></li>
               </ul>
             </div><!--/.nav-collapse -->
@@ -101,7 +76,26 @@
         </nav>
 
         <div class="container">
+<?php echo form_open('loan/create', ['class' => 'form-horizontal']); ?>
+  <fieldset>
+    <legend>Company loan application</legend>
+    <div class="form-group <?php echo form_error('amount') != '' ? 'has-error' : '' ?>">
+      <label for="amount" class="col-lg-2 control-label">Amount</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" >
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+      <?php echo validation_errors(); ?>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
 
-        <fieldset>
-            <legend><?php echo ucwords(str_replace('_', ' ', $active_page)) ?></legend>
-        </fieldset>
