@@ -22,6 +22,8 @@ class Main extends CI_Controller
 		$empcode = $this->session->empcode;
 		$emp = $this->employee_model->get($empcode);
 
+		$data['data_info'] = $emp;
+
 		if (($emp->supervisor) || ($emp->depthead) || ($emp->secthead) || ($emp->divhead)) {
 			$this->load->view('main/index', $data);
 		} else {

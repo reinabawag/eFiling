@@ -44,6 +44,8 @@ class Overtime_model extends CI_Model
 		$this->db->order_by('id', 'desc');
 		$query = $this->db->get_where('overtimes', ['overtimes.empcode' => $empcode]);
 
+		// die($this->db->last_query());
+
 		return $query->result_array();
 	}
 

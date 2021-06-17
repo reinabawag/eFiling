@@ -1,3 +1,8 @@
+<?php if(@$data_info->is_hr): ?>
+	<?php echo anchor('/hr/index', '<span class="glyphicon glyphicon-user"></span> HR Module', ['class' => 'btn btn-success']) ?>
+	<br><br>
+<?php endif; ?>
+
 <div class="panel panel-default">
 	<div class="panel-heading"><strong>OT Approval</strong></div>
 	<div class="panel-body">
