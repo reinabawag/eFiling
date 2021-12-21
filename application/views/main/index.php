@@ -93,6 +93,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-warning" id="ot_disapprove">Disapprove</button>
         <button type="button" class="btn btn-success" id="ot_approve">Approve</button>
       </div>
     </div>
@@ -124,8 +125,8 @@
       		<div class="form-group">
       			<label for="status">Update Request</label>
       			<select name="status" id="status" class="form-control">
-      				<option value="APPROVED">Approve</option>
-      				<option value="DENIED">Deny</option>
+      				<option value="">APPROVE</option>
+      				<option value="">DISAPRROVE</option>
       			</select>
       		</div>
       	</form>
@@ -149,12 +150,12 @@
       </div>
       <div class="modal-body">
 	  	<input type="hidden" id="id" name="id">
-        <p><strong>name:</strong> <span id="name"></span></p>
-		<p><strong>date filed:</strong> <span id="date_filed"></span></p>
-		<p><strong>type:</strong> <span id="type"></span></p>
-		<p><strong>reason:</strong> <span id="reason"></span></p>
-		<p><strong>date from:</strong> <span id="date_start"></span></p>
-		<p><strong>date to:</strong> <span id="date_end"></span></p>
+        <strong>name:</strong> <span id="name"></span></br>
+		<strong>date filed:</strong> <span id="date_filed"></span></br>
+		<strong>type:</strong> <span id="type"></span></br>
+		<strong>reason:</strong> <span id="reason"></span></br>
+		<strong>date from:</strong> <span id="date_start"></span></br>
+		<strong>date to:</strong> <span id="date_end"></span></br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -330,6 +331,25 @@
 	    		if (data.status) {
 	        		$('#ot-modal').modal('hide');
 	        		toastr.success('Overtime Approved', 'Success');
+	    			ot_table.ajax.reload();	
+	    		} else {
+	    			toastr.error('Error processing approval', 'Error');
+	    		}
+	    	})
+	    	.fail(function() {
+	    		toastr.error('Cannot process approve request.', 'Error');
+	    	})
+	    });
+
+		$('.modal #ot_disapprove').click(function(e) {
+	    	e.preventDefault();
+	    	var recid = $('input#recid').val();
+
+	    	$.post('<?php echo site_url('main/approve_ot') ?>', {id : recid, approve: 0}, null, 'json')
+	    	.done(function(data) {
+	    		if (data.status) {
+	        		$('#ot-modal').modal('hide');
+	        		toastr.success('Overtime Disapproved', 'Success');
 	    			ot_table.ajax.reload();	
 	    		} else {
 	    			toastr.error('Error processing approval', 'Error');

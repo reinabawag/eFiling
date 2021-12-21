@@ -215,7 +215,7 @@ class Main extends CI_Controller
         $emp = $this->employee_model->get($empcode);
 
 		if (($emp ->supervisor) || ($emp ->depthead) || ($emp ->secthead)) {
-			$result = $this->overtime_model->approve_ot_recommendation($recid);
+			$result = $this->overtime_model->approve_ot_recommendation($recid, $status);
 
 			if ($this->overtime_model->getOvertime($recid)->appr_by == NULL) {
 				$this->overtime_model->approve_ot_approver($recid);

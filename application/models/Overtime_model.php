@@ -124,10 +124,16 @@ class Overtime_model extends CI_Model
 		return $result->result();
 	}
 
-	public function approve_ot_recommendation($recid)
+	public function approve_ot_recommendation($recid, $status)
 	{
+		$stat = 'PENDING';
+
+		if (!$status) {
+			$stat = 'DISAPPROVED';
+		}
+
 		$this->db->where('id', $recid);
-		return $this->db->update('overtimes', ['rec_status' => TRUE]);
+		return $this->db->update('overtimes', ['rec_status' => intval($status), 'status' => $stat]);
 	}
 
 	public function approve_ot_approver($recid)

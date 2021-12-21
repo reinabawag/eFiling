@@ -11,8 +11,9 @@ class Report extends CI_Controller
 
     public function index()
     {
-        $jasper = new JasperPHP;
+        $this->load->helper('download');
 
+        $jasper = new JasperPHP;
         $date1 = $this->input->get('start_date');
         $date2 = $this->input->get('end_date');
         $report_type = $this->input->get('report_type');
@@ -20,7 +21,7 @@ class Report extends CI_Controller
         $jasper->process(
             'rpt/' . $report_type . '.jrxml',
             false,
-            array('pdf', 'xlsx'),
+            array('pdf'),
             array('date1' => $date1, 'date2' => $date2),
             array(
                 'driver' => 'mysql',
@@ -31,5 +32,7 @@ class Report extends CI_Controller
                 'port' => '3306',
             )
         )->execute();
+
+        force_download('rpt/' . $report_type . '.pdf', NULL);
     }
 }
